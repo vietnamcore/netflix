@@ -1,0 +1,24 @@
+{
+  "name": "netflix-premium",
+  "version": "1.0.0",
+  "description": "Netflix Premium Landing Page with 3D effects and animations",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server",
+    "build": "echo 'Build complete'",
+    "deploy:vercel": "vercel --prod",
+    "deploy:netlify": "netlify deploy --prod"
+  },
+  "keywords": [
+    "netflix",
+    "premium",
+    "3d",
+    "animations",
+    "glassmorphism"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
