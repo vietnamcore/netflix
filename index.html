@@ -1,0 +1,479 @@
+
+## index.html
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Netflix Premium - Trải nghiệm xem phim 4K HDR không quảng cáo với giá cực rẻ. Đăng ký ngay hôm nay!">
+    <meta name="keywords" content="Netflix, Premium, 4K HDR, xem phim, không quảng cáo">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Netflix Premium">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Netflix Premium - Trải nghiệm xem phim đỉnh cao">
+    <meta property="og:description" content="Xem phim 4K HDR, không quảng cáo, đa thiết bị với giá rẻ nhất">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://netflix-premium.vercel.app">
+    <meta property="og:image" content="https://netflix-premium.vercel.app/assets/images/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Netflix Premium - Trải nghiệm xem phim đỉnh cao">
+    <meta name="twitter:description" content="Xem phim 4K HDR, không quảng cáo, đa thiết bị với giá rẻ nhất">
+    <meta name="twitter:image" content="https://netflix-premium.vercel.app/assets/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <title>Netflix Premium - Trải nghiệm xem phim đỉnh cao</title>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="loader-text">NETFLIX</span>
+                <span class="loader-premium">PREMIUM</span>
+            </div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar" id="progressBar"></div>
+            </div>
+            <p class="loader-percentage" id="loaderPercentage">0%</p>
+        </div>
+    </div>
+
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+    
+    <!-- Mouse Trail Container -->
+    <div id="mouseTrail"></div>
+
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Background Aurora -->
+    <div class="aurora-container">
+        <div class="aurora aurora-1"></div>
+        <div class="aurora aurora-2"></div>
+        <div class="aurora aurora-3"></div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Particles Container -->
+    <div id="particles-container"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">NETFLIX</span>
+                <span class="logo-premium">PREMIUM</span>
+            </div>
+            <div class="nav-links">
+                <a href="#hero">Trang chủ</a>
+                <a href="#pricing">Bảng giá</a>
+                <a href="#features">Tính năng</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Liên hệ</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-btn btn-magnetic" onclick="window.open('https://zalo.me/0818105658', '_blank')">
+                    <span>Đăng ký</span>
+                </button>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">✨ Cao cấp nhất</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">NETFLIX</span>
+                    <span class="title-premium">PREMIUM</span>
+                </h1>
+                <p class="hero-description">
+                    Xem phim 4K HDR<br>
+                    Không quảng cáo<br>
+                    Đa thiết bị<br>
+                    Giá rẻ
+                </p>
+                <div class="hero-cta">
+                    <button class="cta-primary btn-magnetic" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
+                        <span>Bắt đầu ngay</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="cta-secondary btn-magnetic" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
+                        <span>Xem tính năng</span>
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="4.8">0</span>
+                        <span class="stat-label">⭐ Đánh giá</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="10000">0</span>
+                        <span class="stat-label">👤 Người dùng</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="99">0</span>
+                        <span class="stat-label">% Hài lòng</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-3d-container" id="threeContainer">
+                    <!-- Three.js will render here -->
+                </div>
+                <!-- Floating Icons -->
+                <div class="floating-icon icon-1">💻</div>
+                <div class="floating-icon icon-2">📺</div>
+                <div class="floating-icon icon-3">📱</div>
+                <div class="floating-icon icon-4">🍿</div>
+            </div>
+        </div>
+        <!-- Marquee -->
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <span>✦ 4K HDR ✦ Không quảng cáo ✦ Đa thiết bị ✦ Giá rẻ ✦</span>
+                <span>✦ 4K HDR ✦ Không quảng cáo ✦ Đa thiết bị ✦ Giá rẻ ✦</span>
+                <span>✦ 4K HDR ✦ Không quảng cáo ✦ Đa thiết bị ✦ Giá rẻ ✦</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title" data-aos="fade-up">Chọn gói của bạn</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Ưu đãi đặc biệt dành riêng cho bạn</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Card 1: 7 Days -->
+                <div class="pricing-card" data-aos="flip-up" data-aos-delay="200">
+                    <div class="card-badge">Phổ biến</div>
+                    <div class="card-icon">🔥</div>
+                    <h3 class="card-title">7 Ngày</h3>
+                    <div class="card-price">
+                        <span class="price-amount">20.000</span>
+                        <span class="price-currency">₫</span>
+                    </div>
+                    <ul class="card-features">
+                        <li>✓ 4K HDR</li>
+                        <li>✓ Không quảng cáo</li>
+                        <li>✓ 2 thiết bị</li>
+                    </ul>
+                    <button class="card-btn btn-magnetic" data-package="7 Ngày" data-price="20.000₫">
+                        <span>Chọn gói</span>
+                    </button>
+                </div>
+
+                <!-- Card 2: 14 Days - BEST -->
+                <div class="pricing-card card-best" data-aos="flip-up" data-aos-delay="300">
+                    <div class="card-badge best-badge">⭐ BEST</div>
+                    <div class="card-icon">👑</div>
+                    <h3 class="card-title">14 Ngày</h3>
+                    <div class="card-price">
+                        <span class="price-amount">25.000</span>
+                        <span class="price-currency">₫</span>
+                    </div>
+                    <ul class="card-features">
+                        <li>✓ 4K HDR</li>
+                        <li>✓ Không quảng cáo</li>
+                        <li>✓ 4 thiết bị</li>
+                        <li>✓ Tải xuống</li>
+                    </ul>
+                    <button class="card-btn btn-magnetic" data-package="14 Ngày" data-price="25.000₫">
+                        <span>Chọn gói</span>
+                    </button>
+                    <div class="card-glow"></div>
+                </div>
+
+                <!-- Card 3: 30 Days -->
+                <div class="pricing-card" data-aos="flip-up" data-aos-delay="400">
+                    <div class="card-badge">Tiết kiệm</div>
+                    <div class="card-icon">🚀</div>
+                    <h3 class="card-title">30 Ngày</h3>
+                    <div class="card-price">
+                        <span class="price-amount">30.000</span>
+                        <span class="price-currency">₫</span>
+                    </div>
+                    <ul class="card-features">
+                        <li>✓ 4K HDR</li>
+                        <li>✓ Không quảng cáo</li>
+                        <li>✓ 6 thiết bị</li>
+                        <li>✓ Tải xuống</li>
+                        <li>✓ Chất lượng cao nhất</li>
+                    </ul>
+                    <button class="card-btn btn-magnetic" data-package="30 Ngày" data-price="30.000₫">
+                        <span>Chọn gói</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title" data-aos="fade-up">Tính năng nổi bật</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Trải nghiệm đẳng cấp nhất</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="feature-icon">🎬</div>
+                    <h3>4K HDR</h3>
+                    <p>Trải nghiệm hình ảnh sắc nét với công nghệ 4K HDR, màu sắc sống động và chi tiết tuyệt vời</p>
+                </div>
+                <div class="feature-item" data-aos="zoom-in" data-aos-delay="250">
+                    <div class="feature-icon">🚫</div>
+                    <h3>Không quảng cáo</h3>
+                    <p>Xem phim liền mạch không bị gián đoạn bởi quảng cáo, tận hưởng trọn vẹn từng khoảnh khắc</p>
+                </div>
+                <div class="feature-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="feature-icon">📱</div>
+                    <h3>Đa thiết bị</h3>
+                    <p>Xem trên mọi thiết bị: TV, laptop, điện thoại, máy tính bảng. Đồng bộ dễ dàng</p>
+                </div>
+                <div class="feature-item" data-aos="zoom-in" data-aos-delay="350">
+                    <div class="feature-icon">💰</div>
+                    <h3>Giá rẻ</h3>
+                    <p>Chi phí thấp nhất thị trường với chất lượng cao cấp, tiết kiệm tối đa cho bạn</p>
+                </div>
+                <div class="feature-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="feature-icon">⬇️</div>
+                    <h3>Tải xuống</h3>
+                    <p>Tải phim về xem ngoại tuyến mọi lúc mọi nơi, không cần kết nối internet</p>
+                </div>
+                <div class="feature-item" data-aos="zoom-in" data-aos-delay="450">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Game &amp; More</h3>
+                    <p>Thêm nhiều nội dung giải trí hấp dẫn, không chỉ phim ảnh mà còn cả game</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title" data-aos="fade-up">Câu hỏi thường gặp</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Những thắc mắc phổ biến</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question">
+                        <span>Netflix Premium là gì?</span>
+                        <svg class="faq-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Netflix Premium là dịch vụ xem phim trực tuyến cao cấp với chất lượng 4K HDR, không quảng cáo và hỗ trợ đa thiết bị với giá cực kỳ hợp lý.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
+                    <div class="faq-question">
+                        <span>Làm thế nào để đăng ký?</span>
+                        <svg class="faq-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Bạn chỉ cần chọn gói phù hợp, bấm nút "Chọn gói" và làm theo hướng dẫn. Chúng tôi hỗ trợ liên hệ qua Zalo để hoàn tất đăng ký.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faq-question">
+                        <span>Có hỗ trợ hoàn tiền không?</span>
+                        <svg class="faq-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Có, chúng tôi có chính sách hoàn tiền trong vòng 7 ngày nếu bạn không hài lòng với dịch vụ.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="350">
+                    <div class="faq-question">
+                        <span>Tôi có thể xem trên bao nhiêu thiết bị?</span>
+                        <svg class="faq-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tùy thuộc vào gói bạn chọn, từ 2 đến 6 thiết bị cùng lúc. Bạn có thể xem trên nhiều nền tảng khác nhau.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-container">
+            <div class="contact-wrapper">
+                <div class="contact-info" data-aos="fade-right">
+                    <h2 class="section-title">Liên hệ</h2>
+                    <p class="contact-desc">Hỗ trợ 24/7, sẵn sàng giúp đỡ bạn</p>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <h4>Điện thoại</h4>
+                            <p>0818105658</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">💬</span>
+                        <div>
+                            <h4>Zalo</h4>
+                            <p>@0818105658</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p>support@netflixpremium.com</p>
+                        </div>
+                    </div>
+                    <button class="contact-zalo-btn btn-magnetic" onclick="window.open('https://zalo.me/0818105658', '_blank')">
+                        <span>💬 Mở Zalo</span>
+                    </button>
+                </div>
+                <div class="contact-form" data-aos="fade-left">
+                    <h3>Gửi tin nhắn</h3>
+                    <form id="contactForm">
+                        <input type="text" placeholder="Họ tên" required>
+                        <input type="email" placeholder="Email" required>
+                        <textarea placeholder="Nội dung" rows="4" required></textarea>
+                        <button type="submit" class="submit-btn btn-magnetic">
+                            <span>Gửi tin nhắn</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">NETFLIX PREMIUM</span>
+                    <p>Trải nghiệm xem phim đỉnh cao</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#hero">Trang chủ</a>
+                    <a href="#pricing">Bảng giá</a>
+                    <a href="#features">Tính năng</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#contact">Liên hệ</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="YouTube">▶️</a>
+                    <a href="#" aria-label="TikTok">🎵</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Netflix Premium. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup" id="popup">
+            <button class="popup-close" id="popupClose">✕</button>
+            <div class="popup-content">
+                <div class="popup-icon">🎉</div>
+                <h2 class="popup-title">Bạn đã chọn</h2>
+                <div class="popup-details">
+                    <p class="popup-package" id="popupPackage">Gói 7 Ngày</p>
+                    <p class="popup-price" id="popupPrice">20.000₫</p>
+                </div>
+                <div class="popup-contact">
+                    <p class="popup-label">Liên hệ</p>
+                    <p class="popup-phone" id="popupPhone">0818105658</p>
+                    <div class="popup-actions">
+                        <button class="popup-zalo-btn btn-magnetic" onclick="window.open('https://zalo.me/0818105658', '_blank')">
+                            <span>Mở Zalo</span>
+                        </button>
+                        <button class="popup-copy-btn" id="copyPhone">
+                            <span>📋 Copy</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="popup-qr">
+                    <div class="qr-placeholder">
+                        <span>📱 QR Code</span>
+                    </div>
+                    <p>Quét QR để liên hệ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.0.42/dist/lenis.min.js"></script>
+    
+    <script src="js/loader.js"></script>
+    <script src="js/threeScene.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/mouse.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
