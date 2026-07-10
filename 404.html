@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Không tìm thấy trang | Netflix Premium</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #0A0A0A;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .error-container {
+            max-width: 500px;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #E50914, #FF6B6B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .error-desc {
+            color: #B3B3B3;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .error-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #E50914;
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .error-btn:hover {
+            background: #B20710;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Trang không tìm thấy</h1>
+        <p class="error-desc">
+            Xin lỗi, trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển.
+        </p>
+        <a href="/" class="error-btn">🏠 Về trang chủ</a>
+    </div>
+</body>
+</html>
